@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CombatHud : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Text nameText;
+    public Slider hpSlider;
+
+    public void SetCombatHUD(StatScript stats)
     {
-        
+        nameText.text = stats.entityName;
+        hpSlider.maxValue = stats.hpMax;
+        hpSlider.value = stats.hpCurrent;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetHp(int hp)
     {
-        
+        hpSlider.value = hp;
     }
 }
