@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum CombatSystem { Start, PlayerTurn, EnemyTurn, Win, Lose }
+public enum CombatSystem { Start, PlayerTurn, EnemyTurn, Win, Lose, Flee }
 public class CombatTracker : MonoBehaviour
 {
     public GameObject playerPrefab;
@@ -59,12 +59,12 @@ public class CombatTracker : MonoBehaviour
 
     IEnumerator PlayerHeal()
     {
-
-    }
-
-    IEnumerator PlayerBlock()
-    {
-
+        playerStats.Heal(5);
+        playerHud.SetHp(playerStats.hpCurrent);
+        trackerText.text = "You heal 5 points!";
+        yield return new WaitForSeconds(2f);
+        combatState = CombatSystem.EnemyTurn;
+        StartCoroutine(EnemyTurn());
     }
 
     IEnumerator EnemyTurn()
@@ -105,15 +105,7 @@ public class CombatTracker : MonoBehaviour
         if (combatState != CombatSystem.PlayerTurn)
             return;
 
-        StartCoroutine(PlayerAttack());
-    }
-
-    public void OnBlockButton()
-    {
-        if (combatState != CombatSystem.PlayerTurn)
-            return;
-
-        StartCoroutine(PlayerAttack());
+        StartCoroutine(PlayerHeal());
     }
 
     void EndFight()

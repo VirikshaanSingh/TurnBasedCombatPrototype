@@ -16,4 +16,19 @@ public class StatScript : MonoBehaviour
         else
             return false;
     }
+
+    public void Heal(int healAmount)
+    {
+        hpCurrent += healAmount;
+
+        if (hpCurrent > hpMax)
+        {
+            hpCurrent = hpMax;
+        }
+    }
+
+    public void BlockAttack()
+    {
+
+    }
 }
