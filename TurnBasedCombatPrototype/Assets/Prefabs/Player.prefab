@@ -96,6 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: Player
-  damage: 10
   hpMax: 100
   hpCurrent: 100
+  damage: 10
