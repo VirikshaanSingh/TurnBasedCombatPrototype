@@ -7,6 +7,11 @@ public class StatScript : MonoBehaviour
     public int hpMax;
     public int hpCurrent;
 
+    private void Update()
+    {
+        RandomDamage();
+    }
+
     public bool AttackDamage(int dmg)
     {
         hpCurrent -= dmg;
@@ -27,8 +32,10 @@ public class StatScript : MonoBehaviour
         }
     }
 
-    public void BlockAttack()
+    public void RandomDamage()
     {
-
+        damage = Random.Range(1, 16);
     }
+
+
 }

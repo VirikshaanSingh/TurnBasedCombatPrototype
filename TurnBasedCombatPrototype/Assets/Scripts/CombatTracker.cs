@@ -61,7 +61,7 @@ public class CombatTracker : MonoBehaviour
     {
         bool isDead = enemyStats.AttackDamage(playerStats.damage);
         enemyHud.SetHp(enemyStats.hpCurrent);
-        trackerText.text = "You deal 10 damage!";
+        trackerText.text = "You deal " + playerStats.damage.ToString() + " damage!";
         yield return new WaitForSeconds(2f);
 
         if (isDead)
@@ -89,7 +89,7 @@ public class CombatTracker : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        trackerText.text = "The Enemy deals 12!";
+        trackerText.text = "The Enemy deals " + enemyStats.damage.ToString() + " damage!";
         yield return new WaitForSeconds(1f);
         bool isDead = playerStats.AttackDamage(playerStats.damage);
         playerHud.SetHp(playerStats.hpCurrent);
