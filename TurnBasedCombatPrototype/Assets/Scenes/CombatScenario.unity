@@ -864,6 +864,9 @@ MonoBehaviour:
   enemyHud: {fileID: 1213731406}
   playerStats: {fileID: 4983543768643641680, guid: 27685b5f50dbb9b4fba04c624e1dfb63, type: 3}
   enemyStats: {fileID: 286998307315745763, guid: 62ee5766ff52b634c8c7ca56db03e6cd, type: 3}
+  attackButton: {fileID: 583450481}
+  healButton: {fileID: 215092802}
+  fleeButton: {fileID: 408424461}
   combatState: 0
 --- !u!1 &583450479
 GameObject:

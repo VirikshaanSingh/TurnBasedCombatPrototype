@@ -14,6 +14,9 @@ public class CombatTracker : MonoBehaviour
     public CombatHud enemyHud;
     public StatScript playerStats;
     public StatScript enemyStats;
+    public Button attackButton;
+    public Button healButton;
+    public Button fleeButton;
 
     public CombatSystem combatState;
 
@@ -21,6 +24,23 @@ public class CombatTracker : MonoBehaviour
     {
         combatState = CombatSystem.Start;
         StartCoroutine(CombatSetup());
+    }
+
+    private void Update()
+    {
+        if (combatState != CombatSystem.PlayerTurn)
+        {
+            healButton.enabled = false;
+            attackButton.enabled = false;
+            fleeButton.enabled = false;
+        }
+
+        else
+        {
+            healButton.enabled = true;
+            attackButton.enabled = true;
+            fleeButton.enabled = true;
+        }
     }
 
     IEnumerator CombatSetup()
