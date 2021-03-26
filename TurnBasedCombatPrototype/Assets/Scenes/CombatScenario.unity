@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 96418297}
   - component: {fileID: 96418296}
   m_Layer: 5
-  m_Name: BlockText
+  m_Name: FleeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -387,7 +387,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Block
+  m_Text: Flee
 --- !u!222 &96418297
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -432,7 +432,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 783, y: -279}
+  m_AnchoredPosition: {x: 504, y: -279}
   m_SizeDelta: {x: 252.0033, y: 141.6714}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &215092802
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 408424462}
   - component: {fileID: 408424461}
   m_Layer: 5
-  m_Name: BlockButton
+  m_Name: FleeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -715,7 +715,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 504, y: -279}
+  m_AnchoredPosition: {x: 782, y: -279}
   m_SizeDelta: {x: 252.0033, y: 141.6714}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &408424461
@@ -761,7 +761,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 408424462}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 565187528}
+        m_TargetAssemblyTypeName: CombatTracker, Assembly-CSharp
+        m_MethodName: OnFleeButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &408424462
 MonoBehaviour:
   m_ObjectHideFlags: 0

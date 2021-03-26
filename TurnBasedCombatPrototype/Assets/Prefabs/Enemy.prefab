@@ -97,5 +97,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityName: Enemy
   damage: 12
-  hpMax: 105
-  hpCurrent: 105
+  hpMax: 130
+  hpCurrent: 130

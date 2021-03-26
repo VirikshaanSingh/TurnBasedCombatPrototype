@@ -41,7 +41,7 @@ public class CombatTracker : MonoBehaviour
     {
         bool isDead = enemyStats.AttackDamage(playerStats.damage);
         enemyHud.SetHp(enemyStats.hpCurrent);
-        trackerText.text = "You attack the Enemy!";
+        trackerText.text = "You deal 10 damage!";
         yield return new WaitForSeconds(2f);
 
         if (isDead)
@@ -59,9 +59,9 @@ public class CombatTracker : MonoBehaviour
 
     IEnumerator PlayerHeal()
     {
-        playerStats.Heal(5);
+        playerStats.Heal(10);
         playerHud.SetHp(playerStats.hpCurrent);
-        trackerText.text = "You heal 5 points!";
+        trackerText.text = "You heal 10 points!";
         yield return new WaitForSeconds(2f);
         combatState = CombatSystem.EnemyTurn;
         StartCoroutine(EnemyTurn());
@@ -69,7 +69,7 @@ public class CombatTracker : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        trackerText.text = "The Enemy attacks you!";
+        trackerText.text = "The Enemy deals 12!";
         yield return new WaitForSeconds(1f);
         bool isDead = playerStats.AttackDamage(playerStats.damage);
         playerHud.SetHp(playerStats.hpCurrent);
@@ -108,6 +108,15 @@ public class CombatTracker : MonoBehaviour
         StartCoroutine(PlayerHeal());
     }
 
+    public void OnFleeButton()
+    {
+        if (combatState != CombatSystem.PlayerTurn)
+            return;
+
+        combatState = CombatSystem.Flee;
+        EndFight();
+    }
+
     void EndFight()
     {
         if(combatState == CombatSystem.Win)
@@ -118,6 +127,11 @@ public class CombatTracker : MonoBehaviour
         else if (combatState == CombatSystem.Lose)
         {
             trackerText.text = "You Lose!";
+        }
+
+        else if (combatState == CombatSystem.Flee)
+        {
+            trackerText.text = "You got away...";
         }
     }
 
