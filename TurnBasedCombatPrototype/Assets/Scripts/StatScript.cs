@@ -7,7 +7,7 @@ public class StatScript : MonoBehaviour
     public int hpCurrent;
     public int damage;
 
-    private void Update()
+    public void Update()
     {
         RandomDamage();
     }
